@@ -1,0 +1,16 @@
+{
+  "name": "weathernjokes",
+  "version": "1.0.0",
+  "description": "Get to know today's weather and a suitable joke to lighten your mood!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Uttkarsh Ranjan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5"
+  }
+}
