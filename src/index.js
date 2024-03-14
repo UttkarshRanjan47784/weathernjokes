@@ -1,29 +1,27 @@
-import env from 'dotenv';
 import axios from 'axios';
-
-env.config();
+import { RAP_API_KEY, IP_HOST, IP_API_KEY, IP_URL, WEATHER_URL, WEATHER_HOST, JOKE_URL, JOKE_HOST } from './keys.js'
 
 let outputInfo = {};
 
 const optionsI = {
     method: 'GET',
-    url: process.env.IP_URL,
+    url: IP_URL,
     params: {
-      apikey: process.env.IP_API_KEY
+      apikey: IP_API_KEY
     },
     headers: {
-      'X-RapidAPI-Key': process.env.RAP_API_KEY,
-      'X-RapidAPI-Host': process.env.IP_HOST
+      'X-RapidAPI-Key': RAP_API_KEY,
+      'X-RapidAPI-Host': IP_HOST
     }
 };
 
 
 const optionsJ = {
     method: 'GET',
-    url: process.env.JOKE_URL,
+    url: JOKE_URL,
     headers: {
-      'X-RapidAPI-Key': process.env.RAP_API_KEY,
-      'X-RapidAPI-Host': process.env.JOKE_HOST
+      'X-RapidAPI-Key': RAP_API_KEY,
+      'X-RapidAPI-Host': JOKE_HOST
     }
 };
   
@@ -37,10 +35,10 @@ try {
     try {
         const optionsW = {
             method: 'GET',
-            url: process.env.WEATHER_URL + outputInfo.city,
+            url: WEATHER_URL + outputInfo.city,
             headers: {
-                'X-RapidAPI-Key': process.env.RAP_API_KEY,
-                'X-RapidAPI-Host': process.env.WEATHER_HOST
+                'X-RapidAPI-Key': RAP_API_KEY,
+                'X-RapidAPI-Host': WEATHER_HOST
             }
         };
         

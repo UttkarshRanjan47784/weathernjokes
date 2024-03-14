@@ -4,6 +4,6 @@
     "description": "Get to know today's weather and a suitable joke to lighten your mood!",
     "version": "1.0",
     "action": {
-      "default_popup": "index.html"
+      "default_popup": "./dist/index.html"
     }
   }
