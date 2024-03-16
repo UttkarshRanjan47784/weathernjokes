@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { RAP_API_KEY, IP_HOST, IP_API_KEY, IP_URL, WEATHER_URL, WEATHER_HOST, JOKE_URL, JOKE_HOST } from './keys.js'
+import setElements from './domManip.js';
 
 let outputInfo = {};
 
@@ -40,29 +41,28 @@ try {
                 'X-RapidAPI-Key': RAP_API_KEY,
                 'X-RapidAPI-Host': WEATHER_HOST
             }
-        };
-        
+        };        
         const responseW = await axios.request(optionsW);
         outputInfo['weather'] = responseW.data.weather[0]["main"];
         outputInfo['temp'] = Math.round((responseW.data.main["temp"] - 32)*5/9);
         outputInfo['tempFeel'] = Math.round((responseW.data.main["feels_like"] - 32)*5/9);
         outputInfo['humidity'] = responseW.data.main["humidity"];
-        console.log(outputInfo);
     } catch (error) {
         console.error(error);
+        console.log(`Error Retrieving Weather Info`);
     }
-
+    try {
+        const response = await axios.request(optionsJ);
+        outputInfo["joke"] = response.data[0]["joke"];
+        
+    } catch (error) {
+        console.log(error)
+        console.log(`Error retrieving Joke`);
+    }
 } catch (error) {
     console.error(error);
+    console.log(`Error retrieving Location from IP`);
+} finally {
+    console.log(outputInfo);
+    setElements(outputInfo);
 }
-
-
-try {
-    const response = await axios.request(optionsJ);
-	outputInfo["joke"] = response.data[0]["joke"];
-    
-} catch (error) {
-    console.log(error)
-}
-
-console.log(outputInfo);
