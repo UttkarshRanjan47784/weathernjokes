@@ -23,3 +23,10 @@
 - Created an imitation of env file. Added all keys to separate JS file and added that file to .gitignore
 - Webpack build now successfully works.
 - Loaded unpacked extension to chrome. Works!
+
+# 15-03-2024
+- Fever Break :"0
+
+# 16-03-2024
+- UI added.
+- Will work on new extension which using react and tailwind CSS <3
